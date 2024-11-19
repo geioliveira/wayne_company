@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Editar Recurso</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Editar Recurso</h2>
+        <form action="/resources/update/<%= resource.id %>" method="POST">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" value="<%= resource.name %>" required>
+            
+            <label for="type">Tipo:</label>
+            <input type="text" id="type" name="type" value="<%= resource.type %>" required>
+            
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="disponível" <%= resource.status === 'disponível' ? 'selected' : '' %>>Disponível</option>
+                <option value="em uso" <%= resource.status === 'em uso' ? 'selected' : '' %>>Em uso</option>
+                <option value="manutenção" <%= resource.status === 'manutenção' ? 'selected' : '' %>>Manutenção</option>
+            </select>
+            
+            <label for="description">Descrição:</label>
+            <textarea id="description" name="description"><%= resource.description %></textarea>
+            
+            <button type="submit">Atualizar</button><br><br>
+            <a href="/dashboard" class="back-btn">Voltar</a>
+        </form>
+    </div>
+    
+</body>
+</html>

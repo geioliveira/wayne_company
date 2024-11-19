@@ -1,0 +1,30 @@
+<h2>Gestão de Recursos</h2>
+
+<!-- Formulário para adicionar recursos -->
+<form action="/resources/add" method="post">
+    <input type="text" name="name" placeholder="Nome do Recurso" required>
+    <input type="text" name="type" placeholder="Tipo do Recurso" required>
+    <textarea name="description" placeholder="Descrição"></textarea>
+    <button type="submit">Adicionar Recurso</button>
+</form>
+
+<!-- Tabela de Recursos -->
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th>Status</th>
+        <th>Ações</th>
+    </tr>
+    {{#each resources}}
+    <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.type}}</td>
+        <td>{{this.status}}</td>
+        <td>
+            <a href="/resources/update/{{this.id}}">Editar</a>
+            <a href="/resources/delete/{{this.id}}">Excluir</a>
+        </td>
+    </tr>
+    {{/each}}
+</table>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Adicionar Recurso</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Adicionar Novo Recurso</h2>
+        <form action="/resources/add" method="POST">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="type">Tipo:</label>
+            <input type="text" id="type" name="type" required>
+            
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="disponível">Disponível</option>
+                <option value="em uso">Em uso</option>
+                <option value="manutenção">Manutenção</option>
+            </select>
+            
+            <label for="description">Descrição:</label>
+            <textarea id="description" name="description"></textarea>
+            
+            <button type="submit">Adicionar</button><br><br>
+            <a href="/dashboard" class="back-btn">Voltar</a>
+        </form>
+    </div>
+    
+</body>
+</html>

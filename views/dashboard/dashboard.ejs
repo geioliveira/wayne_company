@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Visualização</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho com botão de sair -->
+        <center><h1 style="color:blue">Wayne Company</h1></center>
+        <header>
+            <h2>Dashboard de Visualização</h2>
+            <a href="/auth/logout" class="logout-btn">Sair</a>
+        </header>
+
+        <!-- Botão de Adicionar Novo Recurso -->
+        <div class="add-resource-btn">
+            <a href="/resources/add"><button>Adicionar Novo Recurso</button></a>
+        </div>
+
+        <p>Visualize o status dos recursos e monitoramento de atividades.</p>
+
+        <!-- Tabela de Recursos -->
+        <table>
+            <tr>
+                <th>Nome do Recurso</th>
+                <th>Tipo</th>
+                <th>Status</th>
+                <th>Descrição</th>
+                <th>Ações</th>
+            </tr>
+            <% resources.forEach(function(resource) { %>
+            <tr>
+                <td><%= resource.name %></td>
+                <td><%= resource.type %></td>
+                <td><%= resource.status %></td>
+                <td><%= resource.description %></td>
+                <td class="table-actions">
+                    <a href="/resources/edit/<%= resource.id %>">
+                        <button>Editar</button>
+                    </a>
+                    <a href="/resources/delete/<%= resource.id %>" onclick="return confirm('Tem certeza que deseja excluir este recurso?')">
+                        <button class="delete-btn">Excluir</button>
+                    </a>
+                </td>
+            </tr>
+            <% }); %>
+        </table>
+    </div>
+</body>
+</html>
